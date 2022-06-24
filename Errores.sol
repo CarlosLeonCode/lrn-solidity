@@ -2,7 +2,7 @@
 
 pragma solidity >= 0.7.0 < 0.9.0;
 
-contract Modificadores {
+contract Errores {
     
     address private propietario;
 
@@ -15,7 +15,7 @@ contract Modificadores {
     }
 
     modifier EsPropietario(){
-        if (msg.sender != propietario) revert();
+        require(msg.sender == propietario, "El sender no es el mismo que el propieatario :(");
 
         // This indicates that if is a owner, can continue with function flow
         _;

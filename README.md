@@ -154,3 +154,51 @@ modifier EsPropietario(){}
 // Use of modificator
 function Suma(uint numero1, uint numero2) public view EsPropietario() returns (uint){}
 ```
+
+
+## Error handling
+
+We can use:
+commissions
+- Revert: This one rever all changes made previously and interrupt the process.
+- Require: This one allows to define a validation  and a message instead of in case the validation fails.
+
+### Example:
+
+```solidity
+// contract Errores.sol
+
+require(msg.sender == propietario, "El sender no es el mismo que el propieatario :(");
+```
+
+<hr>
+
+## Types of memory
+
+- Storage: It's a persisted storage. This is the most expensive.
+- Memory: It's a temporal storage. It's most cheap.
+- Calldata: it's a memory space use it when we pass parameters inside functions.
+> Always we are using storage, but if we can use memory, we've to specify it.
+
+```solidity
+constructor(string memory palabra){
+    nombre = palabra;
+}
+```
+## Gas and commissions
+
+- Gas: It's an unit of measurement. This one indicates the computer use or effor.
+- Gas price: This change depending to the offer and demand but its the price that we have to pay for each gas.
+- Gas fee: Es la propina para el minero.
+> Calculate gas cost: gas * gas price
+
+## Transfers | Cash out
+
+We have three methods to do transfers from smart contract.
+
+- Send: Send an ammount to an address but if the transaction is failed, then return a false as a response.
+- Tranfer: Send an ammount to an address but if the transaction is failed, this one interrumpt the process.
+- Call: Send an ammount to an address but if the transaction is failed, this return operation result.
+> Payable means that the address is gonna receive payments. As well these one has a gas limit by default. We can custome gas limit with call function.
+Send and Transfer require that the addresses will be payable type.
+
