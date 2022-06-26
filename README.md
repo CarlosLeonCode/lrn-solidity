@@ -208,9 +208,9 @@ Send and Transfer require that the addresses will be payable type.
 
 We have following functions:
 
-- Receive: This is optional and it's executed when a transfer was received. This doesn't receive parameters.
+- Receive: This is optional and it's executed when a transfer was received. This doesn't receive parameters. This is runned by default.
 - Fallback: This is optional and it's executed when a transfer was received. This receive parameters.
-- Payable function: 
+- Payable function: We can executed specifing a function inside the contract.
 
 ### Example:
 
@@ -246,4 +246,46 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 It's works exact as POO.
 We use Interfaces and contracts to inheritance.
 
+> We use the keyword *interface* to define an interface.
+
 - Example in Herencia.sol
+
+## Polymorphism
+It's the same concept that POO.
+
+Example in polimorfismo.sol. Short explaniation:
+
+> Es complejo de entender... pero basicamente como lo entendi, lo que paso aqui es:
+> - Creas una implementacion de una interfaz.
+> - Usas la dirección generada de la interfaz y la pasas como parametro dentro del contrato que la quieres implementar.
+> - Dentro del contrato a implementarla, referencias la direccion a la interfaz a la que pertenece lo cual genera una instancia, posteriormente puedes usar sus métodos.
+
+## Tokens
+
+They area a representation for some object inside a specific context. Its value is cheaper that its real value.
+
+There exist 2 sort of tokens:
+
+- **Fungible**: They are elements that we can replace to another same token. For example, cryptocurrencies like bitcoin or ether. They are divisibles.
+- **Non fungible**: They aren't divisibles and each one is unique and different. Its value as well is unique. For example NFTs sources as images.
+
+### Standards 
+
+- **ERC - 20**: This is defined to **Fungible tokens** and specify the interface for can use this kind of tokens.
+- **ERC - 721**: This is defined to **Non fungible tokens** and specify the interface for can use this kind of tokens. Each one has a unique ID.
+> Both give us, No implementation, only interface definition.
+
+We can see more about the standards in the link below:
+
+[Contract tokens standards](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token)
+
+### Token URI
+This give us visual details of the token, its commonly used with NFTs.
+
+## ABI (Aplication Binary Interface)
+
+- Es una interface que nos detalla que definiciones tiene el contrato y sus funciones, sin conocer su implementacion.
+- Nos permite saber la forma que tiene un contrato para poder interactuar con las funciones.
+- ABI se presenta en formato JSON
+
+> Just describe external and public attributes and methods.
