@@ -6,8 +6,9 @@ contract Modificadores {
     
     address private propietario;
 
-    constructor(){
+    constructor(string memory name){
         propietario = msg.sender;
+        name = name;
     }
 
     function Suma(uint numero1, uint numero2) public view EsPropietario() returns (uint){

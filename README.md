@@ -180,6 +180,8 @@ require(msg.sender == propietario, "El sender no es el mismo que el propieatario
 - Calldata: it's a memory space use it when we pass parameters inside functions.
 > Always we are using storage, but if we can use memory, we've to specify it.
 
+### Example:
+
 ```solidity
 constructor(string memory palabra){
     nombre = palabra;
@@ -202,3 +204,46 @@ We have three methods to do transfers from smart contract.
 > Payable means that the address is gonna receive payments. As well these one has a gas limit by default. We can custome gas limit with call function.
 Send and Transfer require that the addresses will be payable type.
 
+## Receive Eth
+
+We have following functions:
+
+- Receive: This is optional and it's executed when a transfer was received. This doesn't receive parameters.
+- Fallback: This is optional and it's executed when a transfer was received. This receive parameters.
+- Payable function: 
+
+### Example:
+
+```solidity
+receive() external payable {
+  balances[msg.sender] += msg.value;
+}
+
+fallback() external payable {}
+
+function recibirSaldo(uint numero) public payable {
+  saldoEnviado = msg.value;
+  
+  uint monto = numero;
+}
+```
+
+<hr>
+
+## Using libraries
+
+We import them using keyword **import**, its the same to import contracts.
+Libraries doesn't have a state, just functions because it is a utility.
+
+### Example:
+
+```solidity
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+```
+
+## Inheritance
+
+It's works exact as POO.
+We use Interfaces and contracts to inheritance.
+
+- Example in Herencia.sol
